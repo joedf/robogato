@@ -207,7 +207,7 @@ int main(int argc, char *argv[]) {
 						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[Search] -> http://ahkscript.co.nr\r\n",chan,Color,Orange);
 					else
 						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[Search] %c%d%s -> http://ahkscript.co.nr/?s=a&q=%s\r\n",
-											chan,Color,Orange,Color,LightCyan,buffer,buffer);
+											chan,Color,Orange,Color,LightCyan,buffer,StrReplaceAll(buffer," ","%20"));
 				}
 				else if (instrf(recvbuf,"%s :!g",chan)) {
 					irc_getuser(recvbuf,suffix);
@@ -219,7 +219,7 @@ int main(int argc, char *argv[]) {
 						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[Search] -> http://ahkscript.co.nr/?s=g\r\n",chan,Color,Orange);
 					else
 						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[Search] %c%d%s -> http://ahkscript.co.nr/?s=g&q=%s\r\n",
-											chan,Color,Orange,Color,LightCyan,buffer,buffer);
+											chan,Color,Orange,Color,LightCyan,buffer,StrReplaceAll(buffer," ","%20"));
 				}
 				else if (instrf(recvbuf,"%s :!cmd",chan) || instrf(recvbuf,"%s PRIVMSG %s :!cmd",master,nick)) {
 					irc_getuser(recvbuf,suffix);

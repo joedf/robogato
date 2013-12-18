@@ -9,6 +9,7 @@ int instr(const char *h, const char *n);
 int instrf(const char *h, const char *n, ...);
 int str_isspace(char *str);
 char *strtrim_l(const char *string, int trim, char *dest);
+char *StrReplaceAll(char const * const original, char const * const pattern, char const * const replacement);
 void arr_zero(char a[], int len);
 void irc_getuser(char *buf, char u[]);
 void irc_getmsg(char *buf, char m[]);
