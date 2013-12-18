@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 		  char *nick   = "robogato";
 	const char *name   = "El robot Gato de la muerte!";
 	const char *master = "joedf";
-	const char *pass   = "******************";
+	const char *pass   = "***********";
 	const char *email  = "ahkscript@live.ca";
 	const  int timeout = 10;
 	
@@ -326,7 +326,7 @@ int main(int argc, char *argv[]) {
 					sck_sendf(&sIRC,"PRIVMSG %s :%c%d[%s] (Bot) - %s\r\n",chan,Color,LightGreen,nick,help);
 				}
 				else if (instr(recvbuf,"!party")) {
-					sck_sendf(&sIRC,"PRIVMSG %s :%c%d%s %c%d%s %c%d%s %c%d%s %c%d >>> [ http://youtu.be/9bZkp7q19f0 ]\r\n",
+					sck_sendf(&sIRC,"PRIVMSG %s :%c%d%s %c%d%s %c%d%s %c%d%s %c%d EVERYONE DANCE TO GANGNAM STYLE >>> [ http://youtu.be/9bZkp7q19f0 ]\r\n",
 							chan,Color,Blue,gstyle,Color,Violet,gstyle,Color,Orange,gstyle,Color,LightGreen,gstyle,Color,Cyan);
 				}
 			}
