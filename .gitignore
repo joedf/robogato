@@ -1,5 +1,8 @@
+## joedf's ignores
 dev/
 dev/*
+*.exe
+*.lnk
 
 
 #################
