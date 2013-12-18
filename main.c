@@ -7,10 +7,6 @@
 #define SERVERLOG_CLEAN 1
 #define SAVELOG 0
 
-#ifndef PASSWORD
-	#define PASSWORD "***********"
-#endif
-
 int e;
 int z;
 int connected = 0;
@@ -25,7 +21,7 @@ int main(int argc, char *argv[]) {
 		  char *nick   = "robogato";
 	const char *name   = "El robot Gato de la muerte!";
 	const char *master = "joedf";
-	const char *pass   = PASSWORD;
+	const char *pass   = "*************";
 	const char *email  = "ahkscript@live.ca";
 	const  int timeout = 10;
 	
