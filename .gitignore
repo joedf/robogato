@@ -3,7 +3,7 @@ dev/
 dev/*
 *.exe
 *.lnk
-build.bat
+*.bat
 
 
 #################
