@@ -216,9 +216,21 @@ int main(int argc, char *argv[]) {
 					printf("[REQUEST]-> <%s> %s\n",suffix,buffer);
 					strtrim_l(buffer,3,buffer);
 					if (str_isspace(buffer))
-						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[Search] -> http://ahkscript.co.nr/?s=g\r\n",chan,Color,Orange);
+						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[Search] -> http://google.ca/\r\n",chan,Color,Orange);
 					else
-						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[Search] %c%d%s -> http://ahkscript.co.nr/?s=g&q=%s\r\n",
+						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[Search] %c%d%s -> http://google.ca/#q=%s\r\n",
+											chan,Color,Orange,Color,LightCyan,buffer,StrReplaceAll(buffer," ","%20"));
+				}
+				else if (instrf(recvbuf,"%s :!ddg",chan)) {
+					irc_getuser(recvbuf,suffix);
+					irc_getmsg(recvbuf,buffer);
+					strcpy(buffer,strtok(buffer,"\r\n"));
+					printf("[REQUEST]-> <%s> %s\n",suffix,buffer);
+					strtrim_l(buffer,3,buffer);
+					if (str_isspace(buffer))
+						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[Search] -> https://duckduckgo.com/\r\n",chan,Color,Orange);
+					else
+						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[Search] %c%d%s -> https://duckduckgo.com/?q=%s\r\n",
 											chan,Color,Orange,Color,LightCyan,buffer,StrReplaceAll(buffer," ","%20"));
 				}
 				else if (instrf(recvbuf,"%s :!cmd",chan) || instrf(recvbuf,"%s PRIVMSG %s :!cmd",master,nick)) {
