@@ -87,7 +87,7 @@ void arr_zero(char a[], int len) {
 }
 
 char *url_encode(char *str) {
-	return StrReplaceAll(StrReplaceAll(str," ","%20");,"&","%26");
+	return StrReplaceAll(StrReplaceAll(str," ","%20"),"&","%26");
 }
 
 void irc_getuser(char *buf, char u[]) {
