@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 		  char *nick   = "robogato";
 	const char *name   = "El robot Gato de la muerte!";
 	const char *master = "joedf";
-	const char *pass   = "****************";
+	const char *pass   = "**************";
 	const char *email  = "ahkscript@live.ca";
 	const  int timeout = 10;
 	
@@ -91,9 +91,11 @@ int main(int argc, char *argv[]) {
 		
 		// Receive data until the server closes the connection
 		do {
-			recvbuf[0] = 0;
-			buffer[0] = 0;
-			suffix[0] = 0;
+			//bugfix??
+			half_arr_zero(recvbuf,512); //recvbuf[0] = 0;
+			//half_arr_zero(buffer); //buffer[0] = 0;
+			//half_arr_zero(suffix); //suffix[0] = 0;
+			
 			e = recv(sIRC, recvbuf, recvbuflen, 0);
 			if (e > 0)
 			{

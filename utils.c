@@ -86,6 +86,12 @@ void arr_zero(char a[], int len) {
 		a[i]=0;
 }
 
+void half_arr_zero(char a[], int len) {
+	int i;
+	for(i=0;i<(len/2);i++)
+		a[i+1]=0;
+}
+
 char *url_encode(char *str) {
 	return StrReplaceAll(StrReplaceAll(str," ","%20"),"&","%26");
 }

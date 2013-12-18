@@ -11,6 +11,7 @@ int str_isspace(char *str);
 char *strtrim_l(const char *string, int trim, char *dest);
 char *StrReplaceAll(char const * const original, char const * const pattern, char const * const replacement);
 void arr_zero(char a[], int len);
+void half_arr_zero(char a[], int len);
 char *url_encode(char *str);
 void irc_getuser(char *buf, char u[]);
 void irc_getmsg(char *buf, char m[]);
