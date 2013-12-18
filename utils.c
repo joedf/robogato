@@ -86,6 +86,10 @@ void arr_zero(char a[], int len) {
 		a[i]=0;
 }
 
+char *url_encode(char *str) {
+	return StrReplaceAll(StrReplaceAll(str," ","%20");,"&","%26");
+}
+
 void irc_getuser(char *buf, char u[]) {
 	sscanf(buf,":%s!",u);
 	int n=strpos("!",u);

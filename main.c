@@ -207,7 +207,7 @@ int main(int argc, char *argv[]) {
 						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[AHK Search] -> http://ahkscript.co.nr\r\n",chan,Color,Orange);
 					else
 						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[AHK Search] %c%d%s -> http://ahkscript.co.nr/?s=a&q=%s\r\n",
-											chan,Color,Orange,Color,LightCyan,buffer,StrReplaceAll(buffer," ","%20"));
+											chan,Color,Orange,Color,LightCyan,buffer,url_encode(buffer));
 				}
 				else if (instrf(recvbuf,"%s :!g",chan)) {
 					irc_getuser(recvbuf,suffix);
@@ -219,7 +219,7 @@ int main(int argc, char *argv[]) {
 						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[Google Search] -> http://google.com/\r\n",chan,Color,Orange);
 					else
 						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[Google Search] %c%d%s -> http://google.com/#q=%s\r\n",
-											chan,Color,Orange,Color,LightCyan,buffer,StrReplaceAll(buffer," ","%20"));
+											chan,Color,Orange,Color,LightCyan,buffer,url_encode(buffer));
 				}
 				else if (instrf(recvbuf,"%s :!dd",chan)) {
 					irc_getuser(recvbuf,suffix);
@@ -231,7 +231,7 @@ int main(int argc, char *argv[]) {
 						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[DuckDuckGo Search] -> https://duckduckgo.com/\r\n",chan,Color,Orange);
 					else
 						sck_sendf(&sIRC,"PRIVMSG %s :%c%d[DuckDuckGo Search] %c%d%s -> https://duckduckgo.com/?q=%s\r\n",
-											chan,Color,Orange,Color,LightCyan,buffer,StrReplaceAll(buffer," ","%20"));
+											chan,Color,Orange,Color,LightCyan,buffer,url_encode(buffer));
 				}
 				else if (instrf(recvbuf,"%s :!cmd",chan) || instrf(recvbuf,"%s PRIVMSG %s :!cmd",master,nick)) {
 					irc_getuser(recvbuf,suffix);
