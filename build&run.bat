@@ -1,0 +1,1 @@
+cls &build &bin\main
