@@ -127,6 +127,8 @@ int irc_identified(char *recvbuf) {
 		return -1;
 	if (instr(recvbuf,"Invalid password"))
 		return -1;
+	if (instr(recvbuf,"Nick/channel is temporarily unavailable"))
+		return -1;
 	return 0;
 }
 

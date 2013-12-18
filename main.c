@@ -21,14 +21,14 @@ int main(int argc, char *argv[]) {
 		  char *nick   = "robogato";
 	const char *name   = "El robot Gato de la muerte!";
 	const char *master = "joedf";
-	const char *pass   = "*******";
+	const char *pass   = "****************";
 	const char *email  = "ahkscript@live.ca";
 	const  int timeout = 10;
 	
 	const char *help   = "Current Commands : slap, eat, nom, ahk, g, dd, uptime, ver[sion], say, raw, dance, party, quit, restart, nick, chan, help";
 	char gstyle[] = { 0xE3, 0x83, 0xBE, 0x28, 0xE2, 0x8C, 0x90, 0xE2, 0x96, 0xA0, 0x5F, 0xE2, 0x96, 0xA0, 0x29, 0xE3, 0x83, 0x8E, 0xE2, 0x99, 0xAA, 0x00};
 	
-	int serverlog = 0;
+	int serverlog = !SERVERLOG_CLEAN;
 	int restart = 0;
 	int chat_start = 0;
 	double uptimeStart;
@@ -75,8 +75,7 @@ int main(int argc, char *argv[]) {
 	
 	//////////////////////Connecting////////////////////
 		puts("Connecting...");
-		if (e=sck_connect(&sIRC,pAddr)<0)
-			return e;
+		sck_connect(&sIRC,pAddr);
 	
 	//////////////////////Sending Data//////////////////
 		puts("sending data...");
@@ -108,6 +107,11 @@ int main(int argc, char *argv[]) {
 					}
 				}
 				if (!connected) {
+					if (instr(recvbuf,"Nick/channel is temporarily unavailable"))
+					{
+						puts("[FAILURE] -> Nick/channel is temporarily unavailable");
+						exit(-1);
+					}
 					if (instrf(recvbuf,"%d",RplMotdEnd))
 						puts("[FREENODE-MOTD]-> Done");
 					if(connected=irc_connected(recvbuf))
@@ -135,8 +139,6 @@ int main(int argc, char *argv[]) {
 					{
 						if (joined=irc_joined(recvbuf)) {
 							puts("[SUCCESS]-> Join Channel");
-							if (SERVERLOG_CLEAN)
-								serverlog=0;
 							uptimeStart=get_time();
 						}
 					}

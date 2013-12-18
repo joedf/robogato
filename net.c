@@ -12,7 +12,7 @@ struct addrinfo *sck_resolve(const char *server, const char *port) {
 	if (err != 0) {
 		printf("getaddrinfo failed: %d\n", err);
 		WSACleanup();
-		return NULL;
+		exit(-1); //return NULL;
 	}
 	return pAddr;
 }
@@ -23,7 +23,7 @@ SOCKET get_socket(struct addrinfo *ptr) {
 	if (ConnectSocket == INVALID_SOCKET) {
 		printf("Error at socket(): %ld\n", WSAGetLastError());
 		WSACleanup();
-		return -1;
+		exit(-1); //return -1;
 	}
 	return ConnectSocket;
 }
@@ -34,7 +34,7 @@ int sck_connect(SOCKET *sck, struct addrinfo *ptr) {
 		closesocket(*sck);
 		printf("Unable to connect to server!\n");
 		WSACleanup();
-		return -1;
+		exit(-1); //return -1;
 	}
 	return err;
 }
@@ -67,7 +67,7 @@ int sck_close(SOCKET *sck) {
 		printf("shutdown failed: %d\n", WSAGetLastError());
 		closesocket(*sck);
 		WSACleanup();
-		return -1;
+		exit(-1); //return -1;
 	}
 	return err;
 }
@@ -78,7 +78,7 @@ int sck_disconnect(SOCKET *sck) {
 		printf("shutdown failed: %d\n", WSAGetLastError());
 		closesocket(*sck);
 		WSACleanup();
-		return -1;
+		exit(-1); //return -1;
 	}
 	return err;
 }
