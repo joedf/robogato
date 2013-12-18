@@ -121,6 +121,12 @@ int irc_connected(char *recvbuf) {
 int irc_identified(char *recvbuf) {
 	if (instr(recvbuf,"You are now identified"))
 		return 1;
+	if (instrf(recvbuf," %d ",ErrUserOnChannel))
+		return -1;
+	if (instrf(recvbuf," %d ",ErrNickNameInUse))
+		return -1;
+	if (instr(recvbuf,"Invalid password"))
+		return -1;
 	return 0;
 }
 

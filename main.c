@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 		  char *nick   = "robogato";
 	const char *name   = "El robot Gato de la muerte!";
 	const char *master = "joedf";
-	const char *pass   = "***********";
+	const char *pass   = "*******";
 	const char *email  = "ahkscript@live.ca";
 	const  int timeout = 10;
 	
@@ -120,8 +120,16 @@ int main(int argc, char *argv[]) {
 				{
 					if (!identified)
 					{
-						if (identified=irc_identified(recvbuf))
+						identified=irc_identified(recvbuf);
+						if (identified<0)
+						{
+							identified=0;
+							puts("[FAILURE]-> Indentification");
+						}
+						else if (identified>0)
+						{
 							puts("[SUCCESS]-> Indentification");
+						}
 					}
 					if (!joined)
 					{
