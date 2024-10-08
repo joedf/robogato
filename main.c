@@ -15,9 +15,9 @@ int joined = 0;
 
 int main(int argc, char *argv[]) {
 	
-	const char *server = "irc.freenode.org";
+	const char *server = "irc.libera.chat"; //"irc.freenode.org";
 	const char *port   = DEFAULT_PORT;
-		  char *chan   = "#joedf"; //"#ahkscript"; //"#Sjc_Bot"; //
+		  char *chan   = "#ahk"; //"#joedf"; //"#ahkscript"; //"#Sjc_Bot";
 		  char *nick   = "robogato";
 	const char *name   = "El robot Gato de la muerte!";
 	const char *master = "joedf";
